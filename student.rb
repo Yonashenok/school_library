@@ -1,8 +1,9 @@
+require_relative './person'
 # student with there classroom and skills
 class Student < Person
-  def initialize(class_room)
-    super()
-    @class_room = class_room
+  def initialize(classroom, age, name = 'Unknown', parent_permission: true)
+    super(age, name, parent_permission: parent_permission)
+    @classroom = classroom
   end
 
   def play_hooky
