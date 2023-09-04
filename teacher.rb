@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # teacher with there specialization and servies
 class Teacher < Person
   def initialize(_specialization)

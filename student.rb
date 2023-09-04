@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # student with there classroom and skills
 class Student < Person
   def initialize(class_room)
@@ -8,6 +6,6 @@ class Student < Person
   end
 
   def play_hooky
-    "¯\(ツ)/¯"
+    '¯\(ツ)/¯'
   end
 end

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # person property and permission with parents
 class Person
   attr_accessor :name, :age
