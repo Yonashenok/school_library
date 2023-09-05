@@ -1,9 +1,8 @@
 # recored of rented books
 class Rental
-  attr_reader :person, :book
-  attr_accessor :data
+  attr_accessor :data, :person, :book
 
-  def initialize(data, person, book)
+  def initialize(data, book, person)
     @data = data
 
     @person = person
