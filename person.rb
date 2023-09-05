@@ -26,6 +26,10 @@ class Person < Nameable
     @parent_permission || of_age?
   end
 
+  def self.all
+    ObjectSpace.each_object(self).to_a
+  end
+
   private
 
   def of_age?
