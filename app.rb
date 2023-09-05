@@ -3,8 +3,6 @@ require './teacher'
 require './book'
 require './rental'
 
-
-
 # start the library console
 class App
   def list_of_book
