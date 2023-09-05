@@ -73,7 +73,7 @@ class App
     print 'ID of person: '
     id = gets.chomp
     person = Person.all.select { |p| p.id == id.to_i }[0]
-    if perso
+    if person
       puts 'Rentals :'
       person.rentals.each { |rent| puts "Date: #{rent.date}, Book: #{rent.book.title}, by #{rent.book.author}" }
     else
