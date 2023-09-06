@@ -2,6 +2,8 @@ require './student'
 require './teacher'
 require './book'
 require './rental'
+require 'pry'
+
 
 # start the library console
 class App
@@ -67,7 +69,6 @@ class App
     print 'Date :'
     date = gets.chomp
     Rental.new(date, selected_book, selected_person)
-    # binding.pry
   end
 
   def rented_books
