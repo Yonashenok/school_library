@@ -47,7 +47,7 @@ def main
 
   loop do
     puts ''
-    45.times { print '='}
+    45.times { print '=' }
     puts ''
     puts 'Please choose an option by enterin a number'
     puts '1 - List all books'
