@@ -67,6 +67,7 @@ class App
     print 'Date :'
     date = gets.chomp
     Rental.new(date, selected_book, selected_person)
+    # binding.pry
   end
 
   def rented_books
