@@ -21,7 +21,7 @@ class App
   def list_of_person
     data_persons = JSON.parse(FileChecker.read_json_file('./data/persons.json'))
     data_persons.map.with_index do |person, index|
-      puts "(#{index + 1})[#{person[3]}] Name:#{person[1]}, ID:#{person[2]}, Age: #{person[0]}"
+      puts "(#{index + 1})[#{person[4]}] Name:#{person[3]}, ID:#{person[2]}, Age: #{person[0]}"
     end
   rescue StandardError => e
     puts "Error: #{e.message}"
