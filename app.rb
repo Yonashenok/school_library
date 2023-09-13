@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'json'
 require './student'
 require './teacher'
@@ -27,40 +25,47 @@ class App
     puts "Error: #{e.message}"
   end
 
-  # rubocop:disable Metrics
   def creat_person(number)
     case number
     when '1'
-      puts 'creating student profil'
-      print 'Age :'
-      age = gets.chomp
-      print 'Name :'
-      name = gets.chomp
-      print 'Has parent permission?[Y/N]'
-      permit = gets.chomp.downcase
-      parental_permit = true if permit == 'y'
-      parental_permit = false if permit == 'n'
-      Student.new(age, name, parental_permit)
-      data = Student.all
-      save = Storing.new
-      save.stores_data([data[0]], './data/persons.json')
-      puts 'Person created successfully'
+      create_student
     when '2'
-      puts 'creating teacher profile'
-      print 'Age :'
-      age = gets.chomp
-      print 'Name :'
-      name = gets.chomp
-      print 'Specialization :'
-      spicality = gets.chomp
-      Teacher.new(spicality, age, name)
-      data = Teacher.all
-      save = Storing.new
-      save.stores_data([data[0]], './data/persons.json')
-      puts 'Person created successfully'
+      create_teacher
     else
       puts 'you have inserted the wrong option'
     end
+  end
+
+  def create_student
+    puts 'creating student profil'
+    print 'Age :'
+    age = gets.chomp
+    print 'Name :'
+    name = gets.chomp
+    print 'Has parent permission?[Y/N]'
+    permit = gets.chomp.downcase
+    parental_permit = true if permit == 'y'
+    parental_permit = false if permit == 'n'
+    Student.new(age, name, parental_permit)
+    data = Student.all
+    save = Storing.new
+    save.stores_data([data[0]], './data/persons.json')
+    puts 'Person created successfully'
+  end
+
+  def create_teacher
+    puts 'creating teacher profile'
+    print 'Age :'
+    age = gets.chomp
+    print 'Name :'
+    name = gets.chomp
+    print 'Specialization :'
+    spicality = gets.chomp
+    Teacher.new(spicality, age, name)
+    data = Teacher.all
+    save = Storing.new
+    save.stores_data([data[0]], './data/persons.json')
+    puts 'Person created successfully'
   end
 
   def create_book
@@ -106,5 +111,3 @@ class App
     end
   end
 end
-
-# rubocop:enable Metrics

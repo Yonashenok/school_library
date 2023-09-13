@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require './person'
 # student with there classroom and skills
 class Student < Person

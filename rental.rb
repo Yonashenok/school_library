@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # recored of rented books
 class Rental
   attr_accessor :date, :person, :book

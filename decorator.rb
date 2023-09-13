@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require './nameable'
 # class with method return instance variable
 class Decorator < Nameable

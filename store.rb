@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'json'
 require './filechecker'
 
@@ -30,7 +28,7 @@ class Storing
 
   def store_person(arr, data)
     arr.each do |person|
-      if instance_of?(Teacher)
+      if person.instance_of?(Teacher)
         data.push([person.age, person.name, person.id, person.specialization, person.class.to_s])
       else
         data.push([person.age, person.name, person.id, person.parent_permission, person.class.to_s])

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require './person'
 # teacher with there specialization and servies
 class Teacher < Person

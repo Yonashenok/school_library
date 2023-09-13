@@ -1,8 +1,5 @@
-# frozen_string_literal: true
-
 require './app'
 
-# rubocop:disable Metrics
 def switch_case(number)
   app = App.new
   case number
@@ -67,5 +64,4 @@ def main
 
   puts 'Thank you of using this App'
 end
-# rubocop:enable Metrics
 main
