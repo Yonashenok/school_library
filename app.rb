@@ -5,34 +5,27 @@ require './book'
 require './rental'
 require './store'
 require 'pry'
+require './FileChecker'
 
-
-# start the library console
 class App
   def list_of_book
-    if File.exist?("./data/books.json")
-      file = File.read("./data/books.json")
-      data_books = JSON.parse(file)
-      else 
-        data_books = []
-      end
-      data_books.map.with_index { |book, index| puts "(#{index + 1}) Title: #{book[0]} , Author: #{book[1]}" }
+    data_books = JSON.parse(FileChecker.read_json_file("./data/books.json"))
+    data_books.map.with_index { |book, index| puts "(#{index + 1}) Title: #{book[0]} , Author: #{book[1]}" }
+  rescue StandardError => e
+    puts "Error: #{e.message}"
   end
 
   def list_of_person
-    if File.exist?("./data/persons.json")
-      file = File.read("./data/persons.json")
-      data_persons = JSON.parse(file)
-      else 
-        data_persons = []
-      end
-      data_persons.map.with_index do |person, index|
+    data_persons = JSON.parse(FileChecker.read_json_file("./data/persons.json"))
+    data_persons.map.with_index do |person, index|
       puts "(#{index + 1})[#{person[3]}] Name:#{person[1]}, ID:#{person[2]}, Age: #{person[0]}"
     end
+  rescue StandardError => e
+    puts "Error: #{e.message}"
   end
 
   # rubocop:disable Metrics
-  def creat_person(number)
+ def creat_person(number)
     if number == '1'
       puts 'creating student profil'
       print 'Age :'
@@ -47,9 +40,9 @@ class App
       data = Person.all
       save = Storing.new()
       save.stores_data([data[0]], "./data/persons.json")
-      puts 'Person created succesfully'
+      puts 'Person created successfully'
     elsif number == '2'
-      puts 'creating teacher profil'
+      puts 'creating teacher profile'
       print 'Age :'
       age = gets.chomp
       print 'Name :'
@@ -60,14 +53,13 @@ class App
       data = Person.all
       save = Storing.new()
       save.stores_data([data[0]], "./data/persons.json" )
-      puts 'Person created succesfully'
+      puts 'Person created successfully'
     else
-      puts 'you have inserted wrong option'
-
+      puts 'you have inserted the wrong option'
     end
   end
 
-  def creat_book
+def create_book
     print 'Title :'
     title = gets.chomp
     print 'Author :'
@@ -76,25 +68,19 @@ class App
     data = Book.all
     save = Storing.new()
     save.stores_data([data[0]], "./data/books.json")
-    puts 'Book created succesfully'
+    puts 'Book created successfully'
   end
 
   def rent_book
     list_of_book
     selected = gets.chomp.to_i
-    if File.exist?("./data/books.json")
-      file = File.read("./data/books.json")
-      data_books = JSON.parse(file)
-    end
-    selected_book =  data_books[selected - 1]
+    data_books = JSON.parse(FileChecker.read_json_file("./data/books.json"))
+    selected_book = data_books[selected - 1]
     puts 'Select a person from the following list by number'
     list_of_person
     picked = gets.chomp.to_i
-    if File.exist?("./data/persons.json")
-      file = File.read("./data/persons.json")
-      data_persons = JSON.parse(file)
-    end
-    selected_person =  data_persons[picked - 1]
+    data_persons = JSON.parse(FileChecker.read_json_file("./data/persons.json"))
+    selected_person = data_persons[picked - 1]
     print 'Date :'
     date = gets.chomp
     Rental.new(date, selected_book, selected_person)
@@ -103,14 +89,11 @@ class App
     save.stores_data([data[0]], "./data/rentals.json")
   end
 
-  def rented_books
+def rented_books
     print 'ID of person: '
     id = gets.chomp
-    if File.exist?("./data/rentals.json")
-      file = File.read("./data/rentals.json")
-      data_rentals = JSON.parse(file)
-    end
-    data_rented=  data_rentals.select { |p| p[1][2] == id.to_i }
+    data_rentals = JSON.parse(FileChecker.read_json_file("./data/rentals.json"))
+    data_rented = data_rentals.select { |p| p[1][2] == id.to_i }
     if data_rented
       puts 'Rentals :'
       data_rented.each { |rent| puts "Date: #{rent[0]}, Book: #{rent[2][0]}, by #{rent[2][1]}" }
