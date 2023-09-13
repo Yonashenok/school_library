@@ -4,7 +4,12 @@ require './filechecker'
 # Stores data in json files
 class Storing
   def stores_data(arr, path)
-    data = JSON.parse(FileChecker.read_json_file(path))
+    if File.exist?(path)
+      file = File.read(path)
+      data = JSON.parse(file)
+    else
+      data = []
+    end
     File.new(path, 'w+') unless File.exist?(path)
     File.write(path, store_checker(path, arr, data))
   end
