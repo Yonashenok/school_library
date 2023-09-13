@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 require './student'
 require './teacher'
@@ -39,7 +41,7 @@ class App
       parental_permit = true if permit == 'y'
       parental_permit = false if permit == 'n'
       Student.new(age, name, parental_permit)
-      data = Person.all
+      data = Student.all
       save = Storing.new
       save.stores_data([data[0]], './data/persons.json')
       puts 'Person created successfully'
@@ -52,7 +54,7 @@ class App
       print 'Specialization :'
       spicality = gets.chomp
       Teacher.new(spicality, age, name)
-      data = Person.all
+      data = Teacher.all
       save = Storing.new
       save.stores_data([data[0]], './data/persons.json')
       puts 'Person created successfully'

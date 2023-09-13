@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'json'
 
 # Stores data in json files
 class Storing
-  # rubocop:disable Metrics
   def stores_data(arr, path)
     if File.exist?(path)
       file = File.read(path)
@@ -13,12 +14,14 @@ class Storing
 
     case path
     when './data/books.json'
-      arr.each do |book|
-        data.push([book.title, book.author])
-      end
+      arr.each { |book| data.push([book.title, book.author]) }
     when './data/persons.json'
       arr.each do |person|
-        data.push([person.age, person.name, person.id, person.class.to_s])
+        if instance_of?(Teacher)
+          data.push([person.age, person.name, person.id, person.specialization, person.class.to_s])
+        else
+          data.push([person.age, person.name, person.id, person.parent_permission, person.class.to_s])
+        end
       end
     when './data/rentals.json'
       arr.each do |rental|
@@ -30,4 +33,3 @@ class Storing
     File.write(path, data)
   end
 end
-# rubocop:enable Metrics

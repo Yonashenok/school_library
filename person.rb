@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './nameable'
 
 # class person with it own instance variable
