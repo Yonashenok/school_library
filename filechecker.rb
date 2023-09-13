@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'json'
+
 # checks if file exists
 class FileChecker
   def self.read_json_file(file_path)
