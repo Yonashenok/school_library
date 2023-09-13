@@ -72,6 +72,12 @@ Clone this repository to your desired folder:
 - Twitter: [@YonasHenok3](https://www.twitter.com/YonasHenok3)
 - LinkedIn: [Yonas Henok](https://www.linkedin.com/in/yonas-henok/)
 
+👤 **Aniekan Winner**
+
+- GitHub: [@githubhandle](https://github.com/DevaWinner)
+- Twitter: [@twitterhandle](https://twitter.com/WinnerDevq)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/winnera/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
