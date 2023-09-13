@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './app'
 
 # rubocop:disable Metrics
@@ -6,18 +8,18 @@ def switch_case(number)
   case number
   when '1'
     puts ''
-    45.times { print '='}
+    45.times { print '=' }
     puts ''
     app.list_of_book
-    45.times { print '='}
+    45.times { print '=' }
     puts ''
-    
+
   when '2'
     puts ''
-    45.times { print '='}
+    45.times { print '=' }
     puts ''
     app.list_of_person
-    45.times { print '='}
+    45.times { print '=' }
     puts ''
   when '3'
     puts 'Do you went to create a student (1) or a teacher (2)? [Input the number]:'
@@ -31,10 +33,10 @@ def switch_case(number)
     puts 'Rental created succesfully'
   when '6'
     puts ''
-    45.times { print '='}
+    45.times { print '=' }
     puts ''
     app.rented_books
-    45.times { print '='}
+    45.times { print '=' }
     puts ''
   else
     puts puts 'wrong choose of number please select the right number from the list'
@@ -46,7 +48,7 @@ def main
 
   loop do
     puts ''
-    45.times { print '='}
+    45.times { print '=' }
     puts ''
     puts 'Please choose an option by enterin a number'
     puts '1 - List all books'

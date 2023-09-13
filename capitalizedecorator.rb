@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './decorator'
 # class that capitalizes given word
 class CapitalizeDecorator < Decorator

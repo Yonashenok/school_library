@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # classroom for students
 class Classroom
   attr_reader :students
