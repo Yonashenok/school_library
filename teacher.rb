@@ -1,4 +1,3 @@
-
 require './person'
 # teacher with there specialization and servies
 class Teacher < Person

@@ -1,4 +1,3 @@
-
 require './decorator'
 # class that capitalizes given word
 class CapitalizeDecorator < Decorator

@@ -1,4 +1,3 @@
-
 require './decorator'
 
 # longer words  should trim only 10 letter used
