@@ -1,7 +1,5 @@
-require 'pry'
 require './app'
 
-# rubocop:disable Metrics
 def switch_case(number)
   app = App.new
   case number
@@ -25,7 +23,7 @@ def switch_case(number)
     person_choose = gets.chomp
     app.creat_person(person_choose)
   when '4'
-    app.creat_book
+    app.create_book
   when '5'
     puts 'Select a book from the following list by number'
     app.rent_book
@@ -66,5 +64,4 @@ def main
 
   puts 'Thank you of using this App'
 end
-# rubocop:enable Metrics
 main

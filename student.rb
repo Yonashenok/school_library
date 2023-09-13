@@ -2,10 +2,15 @@ require './person'
 # student with there classroom and skills
 class Student < Person
   attr_reader :classroom
+  attr_accessor :parent_permission
 
-  def initialize(age, name = 'Unknown', classroom = 7, parent_permission: true)
+  def initialize(age, parent_permission, name = 'Unknown')
     super(age, name, parent_permission: parent_permission)
     @classroom = classroom
+  end
+
+  def self.all
+    ObjectSpace.each_object(self).to_a
   end
 
   def classroom=(classroom)
