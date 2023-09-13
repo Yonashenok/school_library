@@ -1,7 +1,7 @@
 require 'json'
 
 class Storing
-	
+
 	def stores_data(arr, path)
 		if File.exist?(path)
 		file = File.read(path)
@@ -15,10 +15,10 @@ class Storing
 				data.push([book.title, book.author])
 			end
 		elsif path == "./data/persons.json"
-				arr.each do |person|
-					data.push([person.age, person.name, person.id, person.class.to_s])
-				end
-			elsif path == "./data/rentals.json"
+      arr.each do |person|
+        data.push([person.age, person.name, person.id, person.class.to_s])
+      end
+		elsif path == "./data/rentals.json"
 			arr.each do |rental|
 				data.push([rental.date, rental.person, rental.book])
 			end
