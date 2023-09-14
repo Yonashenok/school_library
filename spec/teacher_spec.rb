@@ -26,4 +26,12 @@ describe Teacher do
     end
   end
 
+  describe '.all' do
+    it 'returns an array containing all instances of Teacher' do
+      teacher1 = Teacher.new('Physics', 40)
+      teacher2 = Teacher.new('Chemistry', 45)
+
+      expect(Teacher.all).to match_array([teacher, teacher1, teacher2])
+    end
+  end
 end
