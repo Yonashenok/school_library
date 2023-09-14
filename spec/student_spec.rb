@@ -40,4 +40,10 @@ describe Student do
     end
   end
 
+  describe '#play_hooky' do
+    it 'returns the expected message' do
+      expect(student.play_hooky).to eq('¯\(ツ)/¯')
+    end
+  end
+
 end
