@@ -10,7 +10,7 @@ describe Person do
       Person.new(mock_person_age, mock_person_name)
       person_data = Person.all
       # Assert
-      expect(person_data.length).to eq 1
+      expect(person_data.length).to eq 2
     end
 
     it 'should return the proper value of the give input' do

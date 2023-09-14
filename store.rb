@@ -34,7 +34,7 @@ class Storing
   def store_person(arr, data)
     arr.each do |person|
       if person.instance_of?(Teacher)
-        data.push([person.age, person.specialization, person.id,  person.name, person.class.to_s])
+        data.push([person.age, person.specialization, person.id, person.name, person.class.to_s])
       else
         data.push([person.age, person.name, person.id, person.parent_permission, person.class.to_s])
       end
