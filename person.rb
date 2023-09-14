@@ -1,17 +1,20 @@
 require './nameable'
 
-# class person with it own instance variable
+# Class Person with its own instance variables
 class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age, :rentals
 
-  def initialize(age, name = 'Unkown', parent_permission: true)
+  @@all_persons = []
+
+  def initialize(age, name = 'Unknown', parent_permission: true)
     super()
-    @id = Random.rand(1..1000)
+    @id = generate_id
     @name = name
     @age = age
     @parent_permission = parent_permission
     @rentals = []
+    @@all_persons << self
   end
 
   def add_rental(book, date)
@@ -27,12 +30,16 @@ class Person < Nameable
   end
 
   def self.all
-    ObjectSpace.each_object(self).to_a
+    @@all_persons
   end
 
   private
 
   def of_age?
     @age >= 18
+  end
+
+  def generate_id
+    rand(1..1000)
   end
 end
