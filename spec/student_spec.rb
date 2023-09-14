@@ -21,4 +21,23 @@ describe Student do
     end
   end
 
+  describe '#classroom=' do
+    it 'assigns the student to the specified classroom' do
+      classroom = Classroom.new('Math')
+      student.classroom = classroom
+
+      expect(student.classroom).to eq(classroom)
+      expect(classroom.students).to contain_exactly(student)
+    end
+
+    it 'does not assign the student to the same classroom multiple times' do
+      classroom = Classroom.new('Math')
+      student.classroom = classroom
+      student.classroom = classroom
+
+      expect(student.classroom).to eq(classroom)
+      expect(classroom.students).to contain_exactly(student)
+    end
+  end
+
 end
