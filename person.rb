@@ -2,7 +2,7 @@ require './nameable'
 
 # Class Person with its own instance variables
 class Person < Nameable
-  attr_reader :id
+  attr_reader :id, :parent_permission
   attr_accessor :name, :age, :rentals
 
   @@all_persons = []
