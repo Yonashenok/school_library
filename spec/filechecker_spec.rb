@@ -33,4 +33,33 @@ describe FileChecker do
     end
   end
 
+  describe '.file_exists?' do
+    context 'when the file exists' do
+      it 'returns true' do
+        # Arrange
+        file_path = 'data.json'
+        allow(File).to receive(:exist?).with(file_path).and_return(true)
+
+        # Act
+        result = FileChecker.file_exists?(file_path)
+
+        # Assert
+        expect(result).to be true
+      end
+    end
+
+    context 'when the file does not exist' do
+      it 'returns false' do
+        # Arrange
+        file_path = 'nonexistent.json'
+        allow(File).to receive(:exist?).with(file_path).and_return(false)
+
+        # Act
+        result = FileChecker.file_exists?(file_path)
+
+        # Assert
+        expect(result).to be false
+      end
+    end
+  end
 end
