@@ -46,4 +46,12 @@ describe Student do
     end
   end
 
+  describe '.all' do
+    it 'returns an array containing all instances of Student' do
+      student1 = Student.new(16, true, 'Jane Doe')
+      student2 = Student.new(17, false, 'Bob Smith')
+
+      expect(Student.all).to match_array([student, student1, student2])
+    end
+  end
 end
