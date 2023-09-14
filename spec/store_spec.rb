@@ -29,9 +29,9 @@ describe Storing do
         # Read the data from the file
         stored_data = JSON.parse(File.read(books_data_path))
         expect(stored_data).to eq([
-          ['Book 1', 'Author 1'],
-          ['Book 2', 'Author 2']
-        ])
+                                    ['Book 1', 'Author 1'],
+                                    ['Book 2', 'Author 2']
+                                  ])
       end
     end
   end

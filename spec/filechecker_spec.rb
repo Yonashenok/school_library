@@ -6,7 +6,7 @@ describe FileChecker do
       it 'reads and returns the content of the JSON file' do
         # Arrange
         file_path = 'data.json'
-        json_content = [{ "name": "John", "age": 30 }, { "name": "Jane", "age": 25 }]
+        json_content = [{ name: 'John', age: 30 }, { name: 'Jane', age: 25 }]
         allow(File).to receive(:exist?).with(file_path).and_return(true)
         allow(File).to receive(:read).with(file_path).and_return(json_content.to_json)
 
